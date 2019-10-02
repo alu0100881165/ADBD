@@ -14,10 +14,10 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;Algunas de las ventajas del uso de un sistema descentralizado como este son:
 
-&nbsp;&nbsp;&nbsp;&nbsp;- Aumento de la confiabilidad del sistema
-&nbsp;&nbsp;&nbsp;&nbsp;- Crecimiento soportable
-&nbsp;&nbsp;&nbsp;&nbsp;- Toma de decisiones locales
-&nbsp;&nbsp;&nbsp;&nbsp;- Distribución de datos
+&nbsp;&nbsp;&nbsp;&nbsp;- Aumento de la confiabilidad del sistema  
+&nbsp;&nbsp;&nbsp;&nbsp;- Crecimiento soportable  
+&nbsp;&nbsp;&nbsp;&nbsp;- Toma de decisiones locales  
+&nbsp;&nbsp;&nbsp;&nbsp;- Distribución de datos  
 
 &nbsp;&nbsp;&nbsp;&nbsp;Como alternativa, se podría plantear un sistema centralizado. Estos tienen algunas ventajas frente a los descentralizados como una más fácil implementación y mantenimiento. Pero la velocidad de respuesta es más lenta y la escalabilidad resulta más difícil.
 
