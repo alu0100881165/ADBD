@@ -13,6 +13,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;Los servidores deben contar con un SGBD (Sistema Gestor de Base de Datos) junto con una aplicación que permita acceder a la misma y poder modificarla. Además deben estar aisladas, es decir, no deben ser accesibles por ninguna red pública a parte de aquella que utilizaremos para realizar las copias de seguridad con el servidor central.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Algunas de las ventajas del uso de un sistema descentralizado como este son:
+
 &nbsp;&nbsp;&nbsp;&nbsp;- Aumento de la confiabilidad del sistema
 &nbsp;&nbsp;&nbsp;&nbsp;- Crecimiento soportable
 &nbsp;&nbsp;&nbsp;&nbsp;- Toma de decisiones locales
