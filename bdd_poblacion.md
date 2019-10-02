@@ -60,14 +60,12 @@ Además de estos datos, se podrán almacenar cuantos otros datos puedan ser nece
   
 #### Bibliografía
 
-<https://es.wikipedia.org>
-
-<http://sobrebasededatos.blogspot.com/2010/03/analisis-de-requerimientos.html>
-
+<https://es.wikipedia.org>  
+<http://sobrebasededatos.blogspot.com/2010/03/analisis-de-requerimientos.html>  
 <http://repository.udistrital.edu.co/bitstream/11349/4663/1/proyecto_final.pdf>
 
 
-Carlos Fernández Donate (alu).
+Carlos Fernández Donate (alu).  
 Daniel Nuez Wehbe (alu0100881165@ull.edu.es).
 
 
