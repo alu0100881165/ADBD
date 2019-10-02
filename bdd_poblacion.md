@@ -2,7 +2,7 @@
 
 #### Objetivo
 
-   Este documento recoge los resultados de la primera reunión que pretende elaborar un prototipo sobre el papel que cumpla con los requisitos necesarios para implementar una Base de Datos que lleve el control de la población de los municipios españoles.
+Este documento recoge los resultados de la primera reunión que pretende elaborar un prototipo sobre el papel que cumpla con los requisitos necesarios para implementar una Base de Datos que lleve el control de la población de los municipios españoles.
 
 #### Requisitos
 
@@ -61,7 +61,9 @@ Además de estos datos, se podrán almacenar cuantos otros datos puedan ser nece
 #### Bibliografía
 
 <https://es.wikipedia.org>
+
 <http://sobrebasededatos.blogspot.com/2010/03/analisis-de-requerimientos.html>
+
 <http://repository.udistrital.edu.co/bitstream/11349/4663/1/proyecto_final.pdf>
 
 
