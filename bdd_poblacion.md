@@ -66,7 +66,7 @@ Además de estos datos, se podrán almacenar cuantos otros datos puedan ser nece
 <http://repository.udistrital.edu.co/bitstream/11349/4663/1/proyecto_final.pdf>
 
 
-Carlos Fernández Donate (alu).  
+Carlos Fernández Donate (alu0100844665@ull.edu.es).  
 Daniel Nuez Wehbe (alu0100881165@ull.edu.es).
 
 
