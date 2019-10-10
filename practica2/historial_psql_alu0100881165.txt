@@ -1,0 +1,56 @@
+\s
+createusername miusuario
+\s
+alter role miusuario with password 'mipssword'createuser miusuarioalter role miusuario with password 'mipassword'createuser miusuario;
+create user miusuario;
+CREATE DATABASE practica1;
+create table usuarios(CREATE DATABASE practica1;CREATE DATABASE practica1;exit
+\dt
+CREATE DATABASE practica1;;
+\q
+\q
+create user miusuario with encrypted password 'mipassword';
+\q
+\q
+exit
+\q
+\l
+DROP DATABASE practica1 
+\l
+\l
+DROP DATABASE practica1;
+DROP DATABASE practica1;;
+\l
+CREATE DATABASE practica01;
+\l
+CREATE USER miusuario WITH ENCRYPTED PASSWORD 'micontrasena';
+DROP USER miusuario;
+CREATE USER miusuario WITH ENCRYPTED PASSWORD 'micontrasena';
+GRANT ALL PRIVILEGES ON DATABASE practica01 TO miusuario;
+\l
+\c practica01
+CREATE TABLE ejemplo01 (;exit
+\l
+\c postgres 
+\c practica01 
+CREATE TABLE usuarios (nombre VARCHAR(30), clave VARCHAR(10));
+\dt
+\l
+CREATE TABLE usuarios(nombre VARCHAR (30),clave VARCHAR (10));
+\dt
+CREATE TABLE usuarios(nombre varchar (30),clave varchar (10));
+\dt
+\d
+\q
+\l
+\c practica01 
+\d
+create table usuarios (  nombre varchar(30),  clave varchar(10) );
+\d
+insert into usuarios (nombre, clave) values ('Isa','asdf');
+ insert into usuarios (nombre, clave) values ('Pablo','jfx344');
+ insert into usuarios (nombre, clave) values ('Ana','tru3fal');
+SELECT * FROM usuarios;
+\s
+\s
+\q
