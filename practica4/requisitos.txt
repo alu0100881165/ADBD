@@ -1,0 +1,16 @@
+Venta de cosas pa viveros.
+Control del stock de viveros:
+	1. Cada vivero dividido en zonas (ej zona exterior, zona cajas, almacén, etc.)
+	2. Se quiere saber de cada producto, cuánto hay disponible en cada zona en la que esté asignado.
+
+Control empleados:
+	1. Pueden ser destinados a diferentes viveros según la época, pero nunca 2 a la vez.
+	2. Hará en cada vivero una tarea en una zona.
+	3. productividad de cada zona a lo largo del tiempo y de cada empleado.
+	4. Seguimiento histórico del puesto de los empleados.
+
+Programa fidelización:
+	1. A un cliente del programa Tajinaste Plus tiene bonificaciones en función de las compras mensuales.
+	2. Tajinaste Plus controla los pedidos desde su ingreso.
+	3. Capacidad empleados de lograr objetivos de venta.
+	4. Control pedidos que gestionen los empleados a los clientes Plus, cada pedido solo un responsable.

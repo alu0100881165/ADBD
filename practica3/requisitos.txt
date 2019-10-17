@@ -1,0 +1,74 @@
+Tipos de actividades:
+		Deportivas
+			Competición
+			Libres (de la comunidad universitaria, personas mayores de edad que lo soliciten y sean autorizadas)
+
+Control de responsabilidades:
+		tareas a llevar a cabo en las instalaciones
+		permisos
+
+No hay registro, se usan hojas de calculo para cada actividad con los participantes.
+
+Gestión y control de los monitores de las actividades (ahora mismo tienen una bolse de posibles monitores con sus documentos de certificación para desempeñar las actividades).
+
+Los usuarios pueden participar en actividades con monitor, pero tmb pueden usar las instalaciones sin supervisión salvo por el personal de la ULL responsable de las mismas que les daran material, abrir o cerrar sitios, etc.
+
+Actividades con material específico se usa un catálogo para el préstamo a los usuarios.
+
+A las actividades solo asisten personas que hayan pagado la cuota
+
+Actividades:
+	Solo participan personas que hayan pagado la cuota
+	Tiene horarios
+	La cuota es fija dependiendo del usuario
+	Algunas conceden ECTS
+	Tienen número mínimo de participantes. (SI no se llega se anula)
+	Tienen número máximo de participantes. (Si se pasa, lista de espera)
+	Número de faltas a las actividades por las que se pierde derecho a hacerla.
+
+Usuarios:
+	Tener seguro vigente. Ya sea de la ULL o ajeno.
+	CUmplimentar documento de alta.
+	Puede ser necesario la aportacion de otros documentos
+
+Seguro ULL:
+	Cubre a alumnos menores de 28
+	Seguro personal de la ULL
+	Seguro mayores 28 y ajenos no es de la ULL.
+
+Competiciones:
+	Trofeo rector
+		Solo participan personas de la ULL.
+	Trofeo de centros
+	Campeonato local
+	Campeonato autonómico
+	Campeonato de España
+	Internacional
+	Campeonatos organizados por equipos federados
+
+Equipos selección de la ULL:
+	Tienen un Seleccionador
+
+Equipos federados (20% comunidad no universitaria)
+	Coordinador
+
+Instalaciones:
+	Restricciones de actividades que no se hacen
+	Restricciones de actividades que se hacen
+	Tienen uso libre si no hay actividades programadas (esto afecta a lo anterior?)
+	Horario para saber si están libres
+	Reservas de instalaciones para uso libre o por equipos federados.
+		Reservas tienen tarifa
+		Tienen horarios permitidos (en los que no hayan actividades programadas?)
+		Pago con tarjeta
+		15 días antes si eres de la ULL
+		7 días antes si eres ajeno
+		Si no vas, no hay reembolso
+		Si no vas por clima, puedes renovar en un plazo de 30 días
+		Se puede anular hasta 24h antes
+			NO hay reembolso pero si otra reserva
+		El rocódromo y boulder mínimo una pareja y uno necesita licencia.
+
+Buzón de sugerencias:
+	Admite sugerencias
+	Admite reclamaciones
