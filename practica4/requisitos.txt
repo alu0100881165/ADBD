@@ -13,4 +13,36 @@ Programa fidelización:
 	1. A un cliente del programa Tajinaste Plus tiene bonificaciones en función de las compras mensuales.
 	2. Tajinaste Plus controla los pedidos desde su ingreso.
 	3. Capacidad empleados de lograr objetivos de venta.
-	4. Control pedidos que gestionen los empleados a los clientes Plus, cada pedido solo un responsable.
+	4. Control pedidos gestionados por los empleados a los clientes Plus, cada pedido solo un responsable.
+
+
+Tablas:
+	- Viveros
+		* Zonas? (1..N)
+		* Identificador
+
+	- Zonas
+		* Productos asignados (1..N)
+		* Cantidad productos
+		* Identificador
+
+	- Producto
+		* Identificador
+		* Zona asignada (1..N)
+		* Cantidad en cada zona
+
+	- Empleado
+		* Zona asignada (0..1)
+		* Tarea desarrollada
+		* Fecha de asignación a la zona
+
+	- Programa Fidelización
+		* Datos cliente
+		* Pedidos totales (calculado)
+		* Pedidos mensuales (calculado)
+
+	- Pedido
+		* Identificador
+		* Cliente (1..1)
+		* Empleado de venta (1..1)
+		* Fecha
