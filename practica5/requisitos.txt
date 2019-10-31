@@ -1,0 +1,22 @@
+Clases de baile de salon.
+
+Clases privadas	horario: medio dia hasta 22:00, 6 dias a la semana
+		Precio -> 45 euros por estudiantes (o pareja) si es privada
+Clases en grupo horario solo por las tardes
+		Precio -> 6 por etudiante si es en grupo
+
+Instructores de 2 tipos
+	Asalariados tiempo completo
+		Salario fijo por semana
+	Instructores tiempo medio
+		Salario x por una tarde o sólo una clase
+
+Patrocinio de 2 presentaciones Baile social con musica grabada
+	Cuota 5 euros persona
+	Baile viernes noche
+		Promedio de 80 asistentes
+	Baile domingo noche
+		Promedio 30
+
+Dar seguimiento estudiantes y clases que han tomado
+Instructores cuantas clases y de que tipo, y calcular costo medio por clase de cada instructor
