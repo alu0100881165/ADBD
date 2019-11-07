@@ -1,0 +1,31 @@
+Tabla medicamentos (catalogo de existencias)
+	codmedicamento
+	nombremedicamneto
+	tipomedicamento
+	stock
+	unidadesvendidas
+	precio
+	bool
+
+Familia(1..1)
+	NombreFamilia
+
+Laboratorio
+	CodLoboratiorio
+	Nombre
+	Telefono
+	Dir
+	Fax
+	NombrePersonaContacto
+
+Venta
+	Fecha
+	Cantidad
+	CodMed
+
+Cliente
+	CON CRED
+		datos bancarios
+		fecha compra
+	SIN CRED
+
