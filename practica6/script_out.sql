@@ -5,41 +5,41 @@
 
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema practica06
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema practica06
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS  "mydb"  ;
+CREATE SCHEMA IF NOT EXISTS  "practica06"  ;
 
 -- -----------------------------------------------------
--- Table "mydb"."Viveros"
+-- Table "practica06"."Viveros"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Viveros" (
+CREATE TABLE  "practica06"."Viveros" (
   "Coordenadas" VARCHAR(30) NOT NULL,
   "Localidad" VARCHAR(30) NULL,
   PRIMARY KEY ("Coordenadas"));
 
 
 -- -----------------------------------------------------
--- Table "mydb"."Zona"
+-- Table "practica06"."Zona"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Zona" (
+CREATE TABLE  "practica06"."Zona" (
   "Nombre" VARCHAR(20) NOT NULL,
   "Coordenadas" VARCHAR(30) NOT NULL,
   PRIMARY KEY ("Nombre", "Coordenadas"),
   CONSTRAINT "FK_Zona_Vivero"
     FOREIGN KEY ("Coordenadas")
-    REFERENCES "mydb"."Viveros" ("Coordenadas")
+    REFERENCES "practica06"."Viveros" ("Coordenadas")
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
--- Table "mydb"."Empleado"
+-- Table "practica06"."Empleado"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Empleado" (
+CREATE TABLE  "practica06"."Empleado" (
   "DNI" INT NOT NULL,
   "Sueldo" FLOAT NULL,
   "CSS" INT NULL,
@@ -52,20 +52,20 @@ CREATE TABLE  "mydb"."Empleado" (
   PRIMARY KEY ("DNI", "FechaIni"),
   CONSTRAINT "fk_Empleado_ZonaCoordenada"
     FOREIGN KEY ("Coordenadas")
-    REFERENCES "mydb"."Zona" ("Coordenadas")
+    REFERENCES "practica06"."Zona" ("Coordenadas")
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT "fk_Empleado_ZonaNombre"
     FOREIGN KEY ("Nombre")
-    REFERENCES "mydb"."Zona" ("Nombre")
+    REFERENCES "practica06"."Zona" ("Nombre")
     ON DELETE NO ACTION
     ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
--- Table "mydb"."Cliente"
+-- Table "practica06"."Cliente"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Cliente" (
+CREATE TABLE  "practica06"."Cliente" (
   "DNI" INT NOT NULL,
   "Bonus" VARCHAR(30) NULL,
   "CompraMensual" FLOAT NULL,
@@ -73,9 +73,9 @@ CREATE TABLE  "mydb"."Cliente" (
 
 
 -- -----------------------------------------------------
--- Table "mydb"."Producto"
+-- Table "practica06"."Producto"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Producto" (
+CREATE TABLE  "practica06"."Producto" (
   "CodProducto" INT NOT NULL,
   "Precio" INT NULL,
   "Stock" INT NULL,
@@ -83,9 +83,9 @@ CREATE TABLE  "mydb"."Producto" (
 
 
 -- -----------------------------------------------------
--- Table "mydb"."ZonaProducto"
+-- Table "practica06"."ZonaProducto"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."ZonaProducto" (
+CREATE TABLE  "practica06"."ZonaProducto" (
   "Coordenadas" VARCHAR(30) NOT NULL,
   "Nombre" VARCHAR(20) NOT NULL,
   "CodProducto" INT NOT NULL,
@@ -93,25 +93,25 @@ CREATE TABLE  "mydb"."ZonaProducto" (
   PRIMARY KEY ("Coordenadas", "Nombre", "CodProducto"),
   CONSTRAINT "fk_ZonaProducto_ZonaCoord"
     FOREIGN KEY ("Coordenadas")
-    REFERENCES "mydb"."Zona" ("Coordenadas")
+    REFERENCES "practica06"."Zona" ("Coordenadas")
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT "fk_ZonaProducto_Prod"
     FOREIGN KEY ("CodProducto")
-    REFERENCES "mydb"."Producto" ("CodProducto")
+    REFERENCES "practica06"."Producto" ("CodProducto")
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
   CONSTRAINT "fk_ZonaProducto_ZonaNombre"
     FOREIGN KEY ("Nombre")
-    REFERENCES "mydb"."Zona" ("Nombre")
+    REFERENCES "practica06"."Zona" ("Nombre")
     ON DELETE NO ACTION
     ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
--- Table "mydb"."ClienEmpleProd"
+-- Table "practica06"."ClienEmpleProd"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."ClienEmpleProd" (
+CREATE TABLE  "practica06"."ClienEmpleProd" (
   "DNIEmp" INT NOT NULL,
   "DNIClien" INT NOT NULL,
   "CodProducto" INT NOT NULL,
@@ -121,17 +121,17 @@ CREATE TABLE  "mydb"."ClienEmpleProd" (
   PRIMARY KEY ("DNIEmp", "DNIClien", "CodProducto", "Fecha"),
   CONSTRAINT "fk_ClienEmpleProd_Emple"
     FOREIGN KEY ("DNIEmp")
-    REFERENCES "mydb"."Empleado" ("DNI")
+    REFERENCES "practica06"."Empleado" ("DNI")
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
   CONSTRAINT "fk_ClienEmpleProd_Clie "
     FOREIGN KEY ("DNIClien")
-    REFERENCES "mydb"."Cliente" ("DNI")
+    REFERENCES "practica06"."Cliente" ("DNI")
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
   CONSTRAINT "fk_ClienEmpleProd_Prod"
     FOREIGN KEY ("CodProducto")
-    REFERENCES "mydb"."Producto" ("CodProducto")
+    REFERENCES "practica06"."Producto" ("CodProducto")
     ON DELETE NO ACTION
     ON UPDATE CASCADE);
 
