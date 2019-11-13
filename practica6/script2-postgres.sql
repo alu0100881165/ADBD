@@ -11,12 +11,12 @@
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS  "mydb"  ;
+CREATE SCHEMA IF NOT EXISTS  "farmacia"  ;
 
 -- -----------------------------------------------------
 -- Table "mydb"."Familia"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Familia" (
+CREATE TABLE  "farmacia"."Familia" (
   "Nombre" VARCHAR(45) NOT NULL,
   "Incompatibilidades" VARCHAR(45) NULL,
   PRIMARY KEY ("Nombre"));
@@ -25,7 +25,7 @@ CREATE TABLE  "mydb"."Familia" (
 -- -----------------------------------------------------
 -- Table "mydb"."Enfermedad"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Enfermedad" (
+CREATE TABLE  "farmacia"."Enfermedad" (
   "Nombre" VARCHAR(45) NOT NULL,
   "Síntoma" VARCHAR(45) NULL,
   PRIMARY KEY ("Nombre"));
@@ -34,18 +34,18 @@ CREATE TABLE  "mydb"."Enfermedad" (
 -- -----------------------------------------------------
 -- Table "mydb"."FamiliaEnfermedad"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."FamiliaEnfermedad" (
+CREATE TABLE  "farmacia"."FamiliaEnfermedad" (
   "Nombre_fam" VARCHAR(45) NOT NULL,
   "Nombre_enf" VARCHAR(45) NOT NULL,
   PRIMARY KEY ("Nombre_fam", "Nombre_enf"),
   CONSTRAINT "fk_FamiliaEnfermedad_Fam"
     FOREIGN KEY ("Nombre_fam")
-    REFERENCES "mydb"."Familia" ("Nombre")
+    REFERENCES "farmacia"."Familia" ("Nombre")
     ON DELETE RESTRICT
     ON UPDATE CASCADE,
   CONSTRAINT "fk_FamiliaEnfermedad_Enf"
     FOREIGN KEY ("Nombre_enf")
-    REFERENCES "mydb"."Enfermedad" ("Nombre")
+    REFERENCES "farmacia"."Enfermedad" ("Nombre")
     ON DELETE RESTRICT
     ON UPDATE CASCADE);
 
@@ -53,7 +53,7 @@ CREATE TABLE  "mydb"."FamiliaEnfermedad" (
 -- -----------------------------------------------------
 -- Table "mydb"."Laboratio"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Laboratio" (
+CREATE TABLE  "farmacia"."Laboratio" (
   "Código" INT NOT NULL,
   "Nombre" VARCHAR(45) NULL,
   "Contacto" VARCHAR(45) NULL,
@@ -65,9 +65,9 @@ CREATE TABLE  "mydb"."Laboratio" (
 
 
 -- -----------------------------------------------------
--- Table "mydb"."Medicamento"
+-- Table "farmacia"."Medicamento"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Medicamento" (
+CREATE TABLE  "farmacia"."Medicamento" (
   "Código" INT NOT NULL,
   "Nombre" VARCHAR(45) NULL,
   "Posología" VARCHAR(45) NULL,
@@ -78,7 +78,7 @@ CREATE TABLE  "mydb"."Medicamento" (
   PRIMARY KEY ("Código"),
   CONSTRAINT "fk_Medicamento_Labo"
     FOREIGN KEY ("Laboratorio")
-    REFERENCES "mydb"."Laboratio" ("Código")
+    REFERENCES "farmacia"."Laboratio" ("Código")
     ON DELETE RESTRICT
     ON UPDATE CASCADE);
 
@@ -86,18 +86,18 @@ CREATE TABLE  "mydb"."Medicamento" (
 -- -----------------------------------------------------
 -- Table "mydb"."MedicamFamilia"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."MedicamFamilia" (
+CREATE TABLE  "farmacia"."MedicamFamilia" (
   "CódigoMed" INT NOT NULL,
   "NombreFam" VARCHAR(45) NOT NULL,
   PRIMARY KEY ("CódigoMed", "NombreFam"),
   CONSTRAINT "fk_MedicamFamilia_Medic"
     FOREIGN KEY ("CódigoMed")
-    REFERENCES "mydb"."Medicamento" ("Código")
+    REFERENCES "farmacia"."Medicamento" ("Código")
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT "fk_MedicamFamilia_Fam"
     FOREIGN KEY ("NombreFam")
-    REFERENCES "mydb"."Familia" ("Nombre")
+    REFERENCES "farmacia"."Familia" ("Nombre")
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
@@ -105,7 +105,7 @@ CREATE TABLE  "mydb"."MedicamFamilia" (
 -- -----------------------------------------------------
 -- Table "mydb"."Compra"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."Compra" (
+CREATE TABLE  "farmacia"."Compra" (
   "FechaActual" TIMESTAMP NOT NULL,
   "Importe" INT NULL,
   PRIMARY KEY ("FechaActual"));
@@ -114,7 +114,7 @@ CREATE TABLE  "mydb"."Compra" (
 -- -----------------------------------------------------
 -- Table "mydb"."MedicamCompra"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."MedicamCompra" (
+CREATE TABLE  "farmacia"."MedicamCompra" (
   "CódigoMed" INT NOT NULL,
   "FechaActualCompra" TIMESTAMP NOT NULL,
   "Importe" FLOAT NULL,
@@ -122,12 +122,12 @@ CREATE TABLE  "mydb"."MedicamCompra" (
   PRIMARY KEY ("CódigoMed", "FechaActualCompra"),
   CONSTRAINT "fk_MedicamCompra_Cód"
     FOREIGN KEY ("CódigoMed")
-    REFERENCES "mydb"."Medicamento" ("Código")
+    REFERENCES "farmacia"."Medicamento" ("Código")
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT "fk_MedicamCompra_Fecha"
     FOREIGN KEY ("FechaActualCompra")
-    REFERENCES "mydb"."Compra" ("FechaActual")
+    REFERENCES "farmacia"."Compra" ("FechaActual")
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -135,7 +135,7 @@ CREATE TABLE  "mydb"."MedicamCompra" (
 -- -----------------------------------------------------
 -- Table "mydb"."ClienteCred"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."ClienteCred" (
+CREATE TABLE  "farmacia"."ClienteCred" (
   "CC" VARCHAR(30) NOT NULL,
   "Nombre" VARCHAR(45) NULL,
   "DíaPago" INT NULL,
@@ -145,7 +145,7 @@ CREATE TABLE  "mydb"."ClienteCred" (
 -- -----------------------------------------------------
 -- Table "mydb"."PagoCréd"
 -- -----------------------------------------------------
-CREATE TABLE  "mydb"."PagoCréd" (
+CREATE TABLE  "farmacia"."PagoCréd" (
   "Mes" INT NOT NULL,
   "Año" INT NOT NULL,
   "FechaActualCompra" TIMESTAMP NOT NULL,
@@ -155,18 +155,18 @@ CREATE TABLE  "mydb"."PagoCréd" (
   PRIMARY KEY ("Mes", "Año", "FechaActualCompra", "CC"),
   CONSTRAINT "fk_PagoCréd_Fecha"
     FOREIGN KEY ("FechaActualCompra")
-    REFERENCES "mydb"."Compra" ("FechaActual")
+    REFERENCES "farmacia"."Compra" ("FechaActual")
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT "fk_PagoCréd_DNI"
     
-    REFERENCES "mydb"."ClienteCred" ()
+    REFERENCES "farmacia"."ClienteCred" ()
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 
 DELIMITER $$
-CREATE DEFINER = CURRENT_USER TRIGGER "mydb"."MedicamCompra_AFTER_INSERT" AFTER INSERT ON "MedicamCompra" FOR EACH ROW
+CREATE DEFINER = CURRENT_USER TRIGGER "farmacia"."MedicamCompra_AFTER_INSERT" AFTER INSERT ON "MedicamCompra" FOR EACH ROW
 BEGIN
 	
     
