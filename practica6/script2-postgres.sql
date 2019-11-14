@@ -16,8 +16,8 @@
 -- Table farmacia.Familia
 -- -----------------------------------------------------
 CREATE TABLE  Familia (
-  Nombre VARCHAR(45),
-  Incompatibilidades VARCHAR(45) NULL,
+  Nombre text,
+  Incompatibilidades text NULL,
   PRIMARY KEY (Nombre));
 
 
@@ -25,8 +25,8 @@ CREATE TABLE  Familia (
 -- Table farmacia.Enfermedad
 -- -----------------------------------------------------
 CREATE TABLE  Enfermedad (
-  Nombre VARCHAR(45),
-  Sintoma VARCHAR(45) NULL,
+  Nombre text,
+  Sintegeroma text NULL,
   PRIMARY KEY (Nombre));
 
 
@@ -34,22 +34,22 @@ CREATE TABLE  Enfermedad (
 -- Table farmacia.FamiliaEnfermedad
 -- -----------------------------------------------------
 CREATE TABLE  FamiliaEnfermedad (
-  Nombre_fam VARCHAR(45) REFERENCES Familia(Nombre) ON DELETE RESTRICT ON DELETE CASCADE,
-  Nombre_enf VARCHAR(45) REFERENCES Enfermedad(Nombre) ON DELETE RESTRICT ON DELETE CASCADE,
+  Nombre_fam text REFERENCES Familia(Nombre) ON DELETE RESTRICT ON DELETE CASCADE,
+  Nombre_enf text REFERENCES Enfermedad(Nombre) ON DELETE RESTRICT ON DELETE CASCADE,
   PRIMARY KEY (Nombre_fam, Nombre_enf));
 
 
 -- -----------------------------------------------------
 -- Table farmacia.Laboratio
 -- -----------------------------------------------------
-CREATE TABLE  Laboratio (
-  Codigo INT,
-  Nombre VARCHAR(45) NULL,
-  Contacto VARCHAR(45) NULL,
-  Telefono INT NULL,
-  Calle VARCHAR(45) NULL,
-  NumCalle INT NULL,
-  CP INT NULL,
+CREATE TABLE  Laboratorio (
+  Codigo integer,
+  Nombre text NULL,
+  Contacto text NULL,
+  Telefono integer NULL,
+  Calle text NULL,
+  NumCalle integer NULL,
+  CP integer NULL,
   PRIMARY KEY (Codigo));
 
 
@@ -57,13 +57,13 @@ CREATE TABLE  Laboratio (
 -- Table farmacia.Medicamento
 -- -----------------------------------------------------
 CREATE TABLE  Medicamento (
-  Codigo INT,
-  Nombre VARCHAR(45) NULL,
-  Posologia VARCHAR(45) NULL,
-  Igic% INT NULL,
-  Precio INT NULL,
+  Codigo integer,
+  Nombre text NULL,
+  Posologia text NULL,
+  Igic% integer NULL,
+  Precio integer NULL,
   Tipo BOOLEAN NOT NULL,
-  Laboratorio INT NULL REFERENCES Laboratorio(codigo) ON DELETE RESTRICT ON UPDATE CASCADE,
+  Laboratorio integer NULL REFERENCES Laboratorio(codigo) ON DELETE RESTRICT ON UPDATE CASCADE,
   PRIMARY KEY (Codigo));
 
 
@@ -71,8 +71,8 @@ CREATE TABLE  Medicamento (
 -- Table farmacia.MedicamFamilia
 -- -----------------------------------------------------
 CREATE TABLE  MedicamFamilia (
-  CodigoMed INT NOT NULL REFERENCES Medicamento (Codigo) ON DELETE CASCADE ON UPDATE CASCADE,
-  NombreFam VARCHAR(45) NOT NULL REFERENCES Familia (Nombre) ON DELETE CASCADE ON UPDATE CASCADE,
+  CodigoMed integer NOT NULL REFERENCES Medicamento (Codigo) ON DELETE CASCADE ON UPDATE CASCADE,
+  NombreFam text NOT NULL REFERENCES Familia (Nombre) ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY (CodigoMed, NombreFam));
 
 
@@ -80,8 +80,8 @@ CREATE TABLE  MedicamFamilia (
 -- Table farmacia.Compra
 -- -----------------------------------------------------
 CREATE TABLE  Compra (
-  FechaActual TIMESTAMP NOT NULL,
-  Importe INT NULL,
+  FechaActual timestamp NOT NULL,
+  Importe integer NULL,
   PRIMARY KEY (FechaActual));
 
 
@@ -89,10 +89,10 @@ CREATE TABLE  Compra (
 -- Table farmacia.MedicamCompra
 -- -----------------------------------------------------
 CREATE TABLE  MedicamCompra (
-  CodigoMed INT NOT NULL REFERENCES Medicamento (Codigo) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  FechaActualCompra TIMESTAMP NOT NULL REFERENCES Compra (FechaActual) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  Importe FLOAT NULL,
-  Igic FLOAT NULL,
+  CodigoMed integer NOT NULL REFERENCES Medicamento (Codigo) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FechaActualCompra timestamp NOT NULL REFERENCES Compra (FechaActual) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  Importe float(2) NULL,
+  Igic float(2) NULL,
   PRIMARY KEY (CodigoMed, FechaActualCompra));
 
 
@@ -100,9 +100,9 @@ CREATE TABLE  MedicamCompra (
 -- Table farmacia.ClienteCred
 -- -----------------------------------------------------
 CREATE TABLE  ClienteCred (
-  CC VARCHAR(30) NOT NULL,
-  Nombre VARCHAR(45) NULL,
-  DiaPago INT NULL,
+  CC text NOT NULL,
+  Nombre text NULL,
+  DiaPago integer NULL,
   PRIMARY KEY (CC));
 
 
@@ -110,12 +110,12 @@ CREATE TABLE  ClienteCred (
 -- Table farmacia.PagoCred
 -- -----------------------------------------------------
 CREATE TABLE  PagoCred (
-  Mes INT NOT NULL,
-  Año INT NOT NULL,
-  FechaActualCompra TIMESTAMP NOT NULL REFERENCES Compra (FechaActual) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  FechaPago TIMESTAMP NULL,
-  CantidadPago FLOAT NULL,
-  CC VARCHAR(30) NOT NULL REFERENCES CLienteCred (CC) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  Mes integer NOT NULL,
+  Año integer NOT NULL,
+  FechaActualCompra timestamp NOT NULL REFERENCES Compra (FechaActual) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FechaPago timestamp NULL,
+  CantidadPago float(2) NULL,
+  CC text NOT NULL REFERENCES CLienteCred (CC) ON DELETE NO ACTION ON UPDATE NO ACTION,
   PRIMARY KEY (Mes, Año, FechaActualCompra, CC));
 
 
@@ -124,7 +124,7 @@ CREATE DEFINER = CURRENT_USER TRIGGER farmacia.MedicamCompra_AFTER_INSERT AFTER 
 BEGIN
 	
     
-    INSERT INTO Compra(FechaActual,Importe) VALUES (FechaActualCompra,(importe * (igic/100)));;
+    INSERT integerO Compra(FechaActual,Importe) VALUES (FechaActualCompra,(importe * (igic/100)));;
     
 END$$
 
