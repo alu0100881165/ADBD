@@ -41,7 +41,7 @@ CREATE TABLE  Empleado (
   FechaIni DATE NOT NULL,
   FechaFin DATE NULL,
   Coordenadas text NULL REFERENCES Viveros(Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE,
-  Nombre text NULL REFERENCES Zona(Nombre) ON DELETE NO ACTION ON UPDATE CASCADE,
+  Nombre text NULL REFERENCES Zona(Nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
   PRIMARY KEY (DNI, FechaIni));
 
 
@@ -70,8 +70,8 @@ CREATE TABLE  Producto (
 -- -----------------------------------------------------
 CREATE TABLE  ZonaProducto (
   Coordenadas text NOT NULL REFERENCES Viveros(Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE,
-  Nombre text NOT NULL REFERENCES Zona(Nombre) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE NO ACTION ON UPDATE CASCADE,
+  Nombre text NOT NULL REFERENCES Zona(Nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE RESTRICT ON UPDATE CASCADE,
   StockZona integer NULL,
   PRIMARY KEY (Coordenadas, Nombre, CodProducto));
 
@@ -80,9 +80,9 @@ CREATE TABLE  ZonaProducto (
 -- Table ClienEmpleProd
 -- -----------------------------------------------------
 CREATE TABLE  ClienEmpleProd (
-  DNIEmp integer NOT NULL REFERENCES Empleado(DNI) ON DELETE NO ACTION ON UPDATE CASCADE,
-  DNIClien integer NOT NULL REFERENCES Cliente(DNI) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE NO ACTION ON UPDATE CASCADE,
+  DNIEmp integer NOT NULL REFERENCES Empleado(DNI) ON DELETE RESTRICT ON UPDATE CASCADE,
+  DNIClien integer NOT NULL REFERENCES Cliente(DNI) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE RESTRICT ON UPDATE CASCADE,
   Fecha DATE NOT NULL,
   Cantidad integer NULL,
   FechaIni DATE NULL,
