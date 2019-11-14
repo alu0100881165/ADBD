@@ -82,12 +82,13 @@ CREATE TABLE  ZonaProducto (
 -- Table ClienEmpleProd
 -- -----------------------------------------------------
 CREATE TABLE  ClienEmpleProd (
-  DNIEmp integer NOT NULL REFERENCES Empleado(DNI) ON DELETE RESTRICT ON UPDATE CASCADE,
+  DNIEmp integer NOT NULL,
   DNIClien integer NOT NULL REFERENCES Cliente(DNI) ON DELETE RESTRICT ON UPDATE CASCADE,
   CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE RESTRICT ON UPDATE CASCADE,
   Fecha DATE NOT NULL,
   Cantidad integer NULL,
-  FechaIni DATE NULL REFERENCES Empleado(FechaIni) ON DELETE RESTRICT ON UPDATE CASCADE,
-  PRIMARY KEY (DNIEmp, DNIClien, CodProducto, Fecha));
+  FechaIni DATE NULL,
+  PRIMARY KEY (DNIEmp, DNIClien, CodProducto, Fecha)
+  FOREIGN KEY (DNIEmp,FechaIni) REFERENCES Empleado(DNI, FechaIni) ON DELETE RESTRICT ON UPDATE CASCADE);
 
 
