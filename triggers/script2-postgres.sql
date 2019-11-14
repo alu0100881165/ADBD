@@ -90,7 +90,7 @@ CREATE TABLE  Compra (
 -- -----------------------------------------------------
 CREATE TABLE  MedicamCompra (
   CodigoMed integer NOT NULL REFERENCES Medicamento (Codigo) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  FechaActualCompra timestamp NOT NULL REFERENCES Compra (FechaActual) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FechaActualCompra timestamp NOT NULL,
   Importe float(2) NULL,
   Igic float(2) NULL,
   PRIMARY KEY (CodigoMed, FechaActualCompra));
