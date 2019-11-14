@@ -87,7 +87,7 @@ CREATE TABLE  ClienEmpleProd (
   CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE RESTRICT ON UPDATE CASCADE,
   Fecha DATE NOT NULL,
   Cantidad integer NULL,
-  FechaIni DATE NULL,
+  FechaIni DATE NULL REFERENCES Empleado(FechaIni) ON DELETE RESTRICT ON UPDATE CASCADE,
   PRIMARY KEY (DNIEmp, DNIClien, CodProducto, Fecha));
 
 
