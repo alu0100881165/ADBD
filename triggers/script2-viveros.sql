@@ -40,7 +40,7 @@ CREATE TABLE  Empleado (
   Ventas integer NULL,
   FechaIni DATE NOT NULL,
   FechaFin DATE NULL,
-  Coordenadas text NULL REFERENCES Zona(Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE,
+  Coordenadas text NULL REFERENCES Viveros(Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE,
   Nombre text NULL REFERENCES Zona(Nombre) ON DELETE NO ACTION ON UPDATE CASCADE,
   PRIMARY KEY (DNI, FechaIni));
 
@@ -69,7 +69,7 @@ CREATE TABLE  Producto (
 -- Table ZonaProducto
 -- -----------------------------------------------------
 CREATE TABLE  ZonaProducto (
-  Coordenadas text NOT NULL REFERENCES Zona(Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE,
+  Coordenadas text NOT NULL REFERENCES Viveros(Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE,
   Nombre text NOT NULL REFERENCES Zona(Nombre) ON DELETE NO ACTION ON UPDATE CASCADE,
   CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE NO ACTION ON UPDATE CASCADE,
   StockZona integer NULL,
