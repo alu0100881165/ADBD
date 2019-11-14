@@ -34,8 +34,8 @@ CREATE TABLE  Enfermedad (
 -- Table farmacia.FamiliaEnfermedad
 -- -----------------------------------------------------
 CREATE TABLE  FamiliaEnfermedad (
-  Nombre_fam text REFERENCES Familia(Nombre) ON DELETE RESTRICT ON DELETE CASCADE,
-  Nombre_enf text REFERENCES Enfermedad(Nombre) ON DELETE RESTRICT ON DELETE CASCADE,
+  Nombre_fam text REFERENCES Familia(Nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
+  Nombre_enf text REFERENCES Enfermedad(Nombre) ON DELETE RESTRICT ON UPDATE CASCADE,
   PRIMARY KEY (Nombre_fam, Nombre_enf));
 
 
@@ -60,7 +60,7 @@ CREATE TABLE  Medicamento (
   Codigo integer,
   Nombre text NULL,
   Posologia text NULL,
-  Igic% integer NULL,
+  Igic integer NULL,
   Precio integer NULL,
   Tipo BOOLEAN NOT NULL,
   Laboratorio integer NULL REFERENCES Laboratorio(codigo) ON DELETE RESTRICT ON UPDATE CASCADE,
@@ -117,17 +117,3 @@ CREATE TABLE  PagoCred (
   CantidadPago float(2) NULL,
   CC text NOT NULL REFERENCES CLienteCred (CC) ON DELETE NO ACTION ON UPDATE NO ACTION,
   PRIMARY KEY (Mes, Año, FechaActualCompra, CC));
-
-
-DELIMITER $$
-CREATE DEFINER = CURRENT_USER TRIGGER farmacia.MedicamCompra_AFTER_INSERT AFTER INSERT ON MedicamCompra FOR EACH ROW
-BEGIN
-	
-    
-    INSERT integerO Compra(FechaActual,Importe) VALUES (FechaActualCompra,(importe * (igic/100)));;
-    
-END$$
-
-
-DELIMITER ;
-
