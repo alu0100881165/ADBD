@@ -33,11 +33,11 @@ CREATE TABLE  Zona (
 -- Table Empleado
 -- -----------------------------------------------------
 CREATE TABLE  Empleado (
-  DNI interger NOT NULL,
+  DNI integer NOT NULL,
   Sueldo float(2) NULL,
-  CSS interger NULL,
+  CSS integer NULL,
   Antiguedad DATE NULL,
-  Ventas interger NULL,
+  Ventas integer NULL,
   FechaIni DATE NOT NULL,
   FechaFin DATE NULL,
   Coordenadas text NULL REFERENCES Zona(Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -49,7 +49,7 @@ CREATE TABLE  Empleado (
 -- Table Cliente
 -- -----------------------------------------------------
 CREATE TABLE  Cliente (
-  DNI interger NOT NULL,
+  DNI integer NOT NULL,
   Bonus text NULL,
   CompraMensual float(2) NULL,
   PRIMARY KEY (DNI));
@@ -59,9 +59,9 @@ CREATE TABLE  Cliente (
 -- Table Producto
 -- -----------------------------------------------------
 CREATE TABLE  Producto (
-  CodProducto interger NOT NULL,
-  Precio interger NULL,
-  Stock interger NULL,
+  CodProducto integer NOT NULL,
+  Precio integer NULL,
+  Stock integer NULL,
   PRIMARY KEY (CodProducto));
 
 
@@ -71,8 +71,8 @@ CREATE TABLE  Producto (
 CREATE TABLE  ZonaProducto (
   Coordenadas text NOT NULL REFERENCES Zona(Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE,
   Nombre text NOT NULL REFERENCES Zona(Nombre) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CodProducto interger NOT NULL REFERENCES Producto(CodProducto) ON DELETE NO ACTION ON UPDATE CASCADE,
-  StockZona interger NULL,
+  CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE NO ACTION ON UPDATE CASCADE,
+  StockZona integer NULL,
   PRIMARY KEY (Coordenadas, Nombre, CodProducto));
 
 
@@ -80,11 +80,11 @@ CREATE TABLE  ZonaProducto (
 -- Table ClienEmpleProd
 -- -----------------------------------------------------
 CREATE TABLE  ClienEmpleProd (
-  DNIEmp interger NOT NULL REFERENCES Empleado(DNI) ON DELETE NO ACTION ON UPDATE CASCADE,
-  DNIClien interger NOT NULL REFERENCES Cliente(DNI) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CodProducto interger NOT NULL REFERENCES Producto(CodProducto) ON DELETE NO ACTION ON UPDATE CASCADE,
+  DNIEmp integer NOT NULL REFERENCES Empleado(DNI) ON DELETE NO ACTION ON UPDATE CASCADE,
+  DNIClien integer NOT NULL REFERENCES Cliente(DNI) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE NO ACTION ON UPDATE CASCADE,
   Fecha DATE NOT NULL,
-  Cantidad interger NULL,
+  Cantidad integer NULL,
   FechaIni DATE NULL,
   PRIMARY KEY (DNIEmp, DNIClien, CodProducto, Fecha));
 
