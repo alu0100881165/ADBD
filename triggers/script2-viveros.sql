@@ -43,7 +43,7 @@ CREATE TABLE  Empleado (
   Coordenadas text NULL,
   Nombre text NULL,
   PRIMARY KEY (DNI, FechaIni),
-  FOREIGN KEY (Nombre, Coordenadas) REFETENCES Zona(Nombre,Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE);
+  FOREIGN KEY (Nombre, Coordenadas) REFERENCES Zona(Nombre,Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
@@ -71,11 +71,11 @@ CREATE TABLE  Producto (
 -- -----------------------------------------------------
 CREATE TABLE  ZonaProducto (
   Coordenadas text NOT NULL,
-  Nombre text NOT NUL,
+  Nombre text NOT NULL,
   CodProducto integer NOT NULL REFERENCES Producto(CodProducto) ON DELETE RESTRICT ON UPDATE CASCADE,
   StockZona integer NULL,
-  PRIMARY KEY (Coordenadas, Nombre, CodProducto)
-  FOREIGN KEY (Nombre, Coordenadas) REFETENCES Zona(Nombre,Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE);
+  PRIMARY KEY (Coordenadas, Nombre, CodProducto),
+  FOREIGN KEY (Nombre, Coordenadas) REFERENCES Zona(Nombre,Coordenadas) ON DELETE CASCADE ON UPDATE CASCADE);
 
 
 -- -----------------------------------------------------
